@@ -56,14 +56,17 @@ def program1_convert_numbers_to_words():
         print(f"Number in words: {result}")
 
         while True:
-            choice = input("Press 'c' to continue or 'm' to return to the main menu: ")
+            choice = input("Press 'c' to continue or 'm' to return to the main menu or 'q' to the exit program: ")
             if choice == 'c':
                 break
             elif choice == 'm':
                 welcome_msg()
                 return
+            elif choice == 'q':
+                print("Exiting program. Goodbye!")
+                exit()
             else:
-                print("Invalid choice. Please press 'c' to continue or 'm' to return to the main menu.")
+                print("Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to the exit program")
 
 
 def program2_get_weather():
