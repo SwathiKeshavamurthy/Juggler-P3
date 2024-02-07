@@ -30,6 +30,12 @@ def program1_convert_numbers_to_words():
 
         if 0 <= number < 20:
             return word_to_num[number]
+        elif 20 <= number < 100:
+            return word_to_num[number // 10 * 10] + ('' if number % 10 == 0 else ' ' + word_to_num[number % 10])
+        elif 100 <= number < 1000:
+            return word_to_num[number // 100] + ' hundred' + (' and ' + number_to_words(number % 100) if number % 100 != 0 else '')
+        elif 1000 <= number < 1000000:
+            return number_to_words(number // 1000) + ' thousand' + (' ' + number_to_words(number % 1000) if number % 1000 != 0 else '')
         else:
             return 'Number out of range'
 
