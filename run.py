@@ -14,7 +14,7 @@ def welcome_msg():
         )
 
 
-def program1_convert_numbers_words():
+def program1_convert_numbers_to_words():
     """
     Convert a given integer number into its word representation.
     """
@@ -28,8 +28,19 @@ def program1_convert_numbers_words():
         70: 'seventy', 80: 'eighty', 90: 'ninety'
         }
 
-    print('entered program1')
-    pass
+        if 0 <= number < 20:
+            return word_to_num[number]
+        else:
+            return 'Number out of range'
+
+    # Get user input
+    user_input = int(input("Enter a number (1 to trillion): "))
+
+    # Convert the input to words
+    result = number_to_words(user_input)
+
+    # Display the result
+    print(f"Number in words: {result}")
 
 
 def program2_get_weather():
