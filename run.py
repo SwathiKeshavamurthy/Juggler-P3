@@ -13,7 +13,19 @@ def welcome_msg():
         "5 : Progarm5 - You should guess a number between 1-10.\n"
         )
 
+def get_api_key():
+    api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+    if not api_key:
+        raise ValueError("API key not found. Make sure to set the OPENWEATHERMAP_API_KEY environment variable.")
+    return api_key
 
+def get_weather(api_key, city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    data = response.json()
+    return data
+
+    
 def program1_convert_numbers_to_words():
     """
     Convert a given integer number into its word representation.
