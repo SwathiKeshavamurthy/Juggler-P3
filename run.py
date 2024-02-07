@@ -36,6 +36,12 @@ def program1_convert_numbers_to_words():
             return word_to_num[number // 100] + ' hundred' + (' and ' + number_to_words(number % 100) if number % 100 != 0 else '')
         elif 1000 <= number < 1000000:
             return number_to_words(number // 1000) + ' thousand' + (' ' + number_to_words(number % 1000) if number % 1000 != 0 else '')
+        elif 1000000 <= number < 1000000000:
+            return number_to_words(number // 1000000) + ' million' + (' ' + number_to_words(number % 1000000) if number % 1000000 != 0 else '')
+        elif 1000000000 <= number < 1000000000000:
+            return number_to_words(number // 1000000000) + ' billion' + (' ' + number_to_words(number % 1000000000) if number % 1000000000 != 0 else '')
+        elif 1000000000000 <= number < 1000000000000000:
+            return number_to_words(number // 1000000000000) + ' trillion' + (' ' + number_to_words(number % 1000000000000) if number % 1000000000000 != 0 else '')
         else:
             return 'Number out of range'
 
