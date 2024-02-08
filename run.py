@@ -219,7 +219,17 @@ def program4_count_all_characters():
         special_char_count = 0
         space_count = 0
 
-        
+# Get user input
+user_input = input("Type a phrase or sentence: ")
+
+# Count characters
+alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
+
+# Display the results
+print(f"Alphabets: {alphabet_count}")
+print(f"Numbers: {digit_count}")
+print(f"Special Characters: {special_char_count}")
+print(f"Spaces: {space_count}")      
 
 
 def program5_guess_a_number():
