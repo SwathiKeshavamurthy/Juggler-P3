@@ -1,8 +1,10 @@
 import os
 import requests
+import json
 import pytz
 import datetime
 import random
+from dotenv import load_dotenv
 
 # WELCOME MEESAGE FUNCTION
 def welcome_msg():
