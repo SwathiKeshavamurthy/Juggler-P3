@@ -17,7 +17,7 @@ def welcome_msg():
         "2 : Progarm2 - You can get the weather information of the city you request.\n"
         "3 : Progarm3 - You can find out the Day of Birth.\n"
         "4 : Progarm4 - You can type a sentence to count all the characters including spaces separately and displayed.\n"
-        "5 : Progarm5 - You should guess a number between 1-10.\n"
+        "5 : Progarm5 - You should guess a number between 1-25.\n"
         )
 
 
@@ -279,8 +279,10 @@ def program5_guess_a_number():
     - str: A message indicating whether the user guessed the number correctly or not.
     """
 
-    print('entered program5')
-    pass
+    def guess_a_number(lower_limit, upper_limit):
+    # Generate a random number within the specified range
+    target_number = random.randint(lower_limit, upper_limit)
+
 
 
 def main():
