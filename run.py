@@ -268,10 +268,14 @@ def program4_count_all_characters():
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
 
-
+# PROGRAM5: GUEES A NUMBER FUNCTION
 def program5_guess_a_number():
     """
     Guess a number game where the user tries to guess a secret number.
+    Parameters:
+    - secret_number (int): The secret number that the user needs to guess.
+    Returns:
+    - str: A message indicating whether the user guessed the number correctly or not.
     """
 
     print('entered program5')
