@@ -219,6 +219,20 @@ def program4_count_all_characters():
         special_char_count = 0
         space_count = 0
 
+    # Iterate through each character in the input
+    for char in input_text:
+        if char.isalpha():
+            alphabet_count += 1
+        elif char.isdigit():
+            digit_count += 1
+        elif char.isspace():
+            space_count += 1
+        else:
+            special_char_count += 1
+
+    return alphabet_count, digit_count, special_char_count, space_count
+
+
 # Get user input
 user_input = input("Type a phrase or sentence: ")
 
