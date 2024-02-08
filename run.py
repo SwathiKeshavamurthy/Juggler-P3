@@ -278,32 +278,47 @@ def program5_guess_a_number():
     Returns:
     - str: A message indicating whether the user guessed the number correctly or not.
     """
+    while True:
+        def guess_a_number(lower_limit, upper_limit):
+            # Generate a random number within the specified range
+            target_number = random.randint(lower_limit, upper_limit)
+            attempts = 0
 
-    def guess_a_number(lower_limit, upper_limit):
-        # Generate a random number within the specified range
-        target_number = random.randint(lower_limit, upper_limit)
-        attempts = 0
-
-        while True:
-            guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
+            while True:
+                guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
         
-            # Increment the number of attempts
-            attempts += 1
+                # Increment the number of attempts
+                attempts += 1
 
-            # Check if the guess is correct
-            if guess == target_number:
-                print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
-                break
-            elif guess < target_number:
-                print("Too low. Try again.")
-            else:
-                print("Too high. Try again.")
+                # Check if the guess is correct
+                if guess == target_number:
+                    print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                    break
+                elif guess < target_number:
+                    print("Too low. Try again.")
+                else:
+                    print("Too high. Try again.")
 
         lower_limit = 1
         upper_limit = 25
 
-# Call the function to start the program
-guess_a_number(lower_limit, upper_limit)
+        # Call the function to start the program
+        guess_a_number(lower_limit, upper_limit)
+
+#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+       
+        while True:
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            if choice == 'c':
+                break
+            elif choice == 'm':
+                welcome_msg()
+                return
+            elif choice == 'q':
+                print("\nExiting program. Goodbye!\n")
+                exit()
+            else:
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
 
 def main():
