@@ -1,7 +1,7 @@
 import os
 import requests
 import pytz
-from datetime import datetime
+import datetime
 
 # WELCOME MEESAGE FUNCTION
 def welcome_msg():
@@ -163,9 +163,25 @@ def program3_get_day_of_birth():
     """
     Get the day of the week on which a person was born based on their date of birth.
     """
+    def find_day_of_birth(date_str):
+        try:
+            # Parse the date string into a datetime object
+            dob = datetime.datetime.strptime(date_str, "%d-%m-%Y")
+        
+            # Get the day of the week (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
+            day_of_week = dob.weekday()
+        
+            # List of days of the week
+            days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        
+            print(f"The person was born on a {days[day_of_week]}.")
+        except ValueError:
+            print("Invalid date format. Please enter the date in dd-mm-yyyy format.")
 
-    print('entered program3')
-    pass
+    date_of_birth = input("Enter the date of birth (dd-mm-yyyy): ")
+    find_day_of_birth(date_of_birth)
+
+
 
 
 def program4_count_all_characters():
