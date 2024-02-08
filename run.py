@@ -290,6 +290,17 @@ def program5_guess_a_number():
         # Increment the number of attempts
         attempts += 1
 
+        # Check if the guess is correct
+        if guess == target_number:
+            print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+            break
+        elif guess < target_number:
+            print("Too low. Try again.")
+        else:
+            print("Too high. Try again.")
+
+            
+
 def main():
     # Calling the function to display the welcome message
     welcome_msg()
