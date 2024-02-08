@@ -29,8 +29,11 @@ def get_weather(api_key, city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
-    current_datetime = datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%Y-%m-%d %H:%M:%S")
-    data['current_datetime'] = current_datetime
+    # Add current local time to the weather information
+    if data.get('timezone'):
+        # Get current local time using the timezone offset
+        current_time = datetime.utcfromtimestamp(data['dt'] + data['timezone']).strftime("%Y-%m-%d %H:%M:%S")
+        data['current_time'] = current_time
     return data
 
     
@@ -104,18 +107,19 @@ def program2_get_weather():
         weather_data = get_weather(api_key, city)
 
         if weather_data.get("cod") == 200:
-            current_datetime = weather_data["current_datetime"]
+            current_time = weather_data["current_time"]
             weather_description = weather_data["weather"][0]["description"]
             temperature = weather_data["main"]["temp"]
             humidity = weather_data["main"]["humidity"]
             wind_speed = weather_data["wind"]["speed"]
 
             print(f"Weather in {city}")
-            print(f"Date and Time {current_datetime}:")
             print(f"Description: {weather_description}")
             print(f"Temperature: {temperature}°C")
             print(f"Humidity: {humidity}%")
             print(f"Wind Speed: {wind_speed} m/s")
+            if current_time:
+                print(f"Current Local Time: {current_time}")
         else:
             print("\nCity not found. Please check the city name and try again.")
 
