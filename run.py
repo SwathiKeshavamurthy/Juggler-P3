@@ -163,25 +163,37 @@ def program3_get_day_of_birth():
     """
     Get the day of the week on which a person was born based on their date of birth.
     """
-    def find_day_of_birth(date_str):
-        try:
-            # Parse the date string into a datetime object
-            dob = datetime.datetime.strptime(date_str, "%d-%m-%Y")
+    while True:
+        def find_day_of_birth(date_str):
+            try:
+                # Parse the date string into a datetime object
+                dob = datetime.datetime.strptime(date_str, "%d-%m-%Y")
         
-            # Get the day of the week (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
-            day_of_week = dob.weekday()
+                # Get the day of the week (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
+                day_of_week = dob.weekday()
         
-            # List of days of the week
-            days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+                # List of days of the week
+                days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         
-            print(f"The person was born on a {days[day_of_week]}.")
-        except ValueError:
-            print("Invalid date format. Please enter the date in dd-mm-yyyy format.")
+                print(f"The person was born on a {days[day_of_week]}.")
+            except ValueError:
+                print("Invalid date format. Please enter the date in dd-mm-yyyy format.")
 
-    date_of_birth = input("Enter the date of birth (dd-mm-yyyy): ")
-    find_day_of_birth(date_of_birth)
+        date_of_birth = input("Enter the date of birth (dd-mm-yyyy): ")
+        find_day_of_birth(date_of_birth)
 
-
+        while True:
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            if choice == 'c':
+                break
+            elif choice == 'm':
+                welcome_msg()
+                return
+            elif choice == 'q':
+                print("\nExiting program. Goodbye!\n")
+                exit()
+            else:
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
 
 def program4_count_all_characters():
