@@ -1,3 +1,9 @@
+import os
+import requests
+import pytz
+from datetime import datetime
+
+
 def welcome_msg():
     """
     Print banner msg and intro text
@@ -23,6 +29,8 @@ def get_weather(api_key, city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
+    current_datetime = datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%Y-%m-%d %H:%M:%S")
+    data['current_datetime'] = current_datetime
     return data
 
     
@@ -89,9 +97,41 @@ def program2_get_weather():
     """
     Get the current weather information for a specified city using the OpenWeatherMap API.
     """
+    while True:
+        api_key = get_api_key()
+        city = input("\nEnter city name: ").strip()
 
-    print('entered program2')
-    pass
+        weather_data = get_weather(api_key, city)
+
+        if weather_data.get("cod") == 200:
+            current_datetime = weather_data["current_datetime"]
+            weather_description = weather_data["weather"][0]["description"]
+            temperature = weather_data["main"]["temp"]
+            humidity = weather_data["main"]["humidity"]
+            wind_speed = weather_data["wind"]["speed"]
+
+            print(f"Weather in {city}")
+            print(f"Date and Time {current_datetime}:")
+            print(f"Description: {weather_description}")
+            print(f"Temperature: {temperature}°C")
+            print(f"Humidity: {humidity}%")
+            print(f"Wind Speed: {wind_speed} m/s")
+        else:
+            print("\nCity not found. Please check the city name and try again.")
+
+        while True:
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            if choice == 'c':
+                break
+            elif choice == 'm':
+                welcome_msg()
+                return
+            elif choice == 'q':
+                print("\nExiting program. Goodbye!")
+                exit()
+            else:
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+
 
 
 def program3_get_day_of_birth():
