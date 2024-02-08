@@ -283,7 +283,7 @@ def program5_guess_a_number():
     # Generate a random number within the specified range
     target_number = random.randint(lower_limit, upper_limit)
 
-
+    attempts = 0
 
 def main():
     # Calling the function to display the welcome message
