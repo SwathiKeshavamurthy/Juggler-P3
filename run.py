@@ -208,42 +208,65 @@ def program3_get_day_of_birth():
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
 
+# PROGRAM4: COUNT ALL CHARACTERS INCLUDING SPACES FUNCTION
 def program4_count_all_characters():
     """
     Count the occurrences of each character in the given text.
+    Parameters:
+    - input_text(str): The input text for which character counts are to be calculated.
+    Returns:
+    - dict: A dictionary containing the count of occurrences of each character in the input text.
     """
-    def count_characters(input_text):
-    # Initialize counters
-        alphabet_count = 0
-        digit_count = 0
-        special_char_count = 0
-        space_count = 0
 
-    # Iterate through each character in the input
-    for char in input_text:
-        if char.isalpha():
-            alphabet_count += 1
-        elif char.isdigit():
-            digit_count += 1
-        elif char.isspace():
-            space_count += 1
-        else:
-            special_char_count += 1
+    while True:
+        def count_characters(input_text):
+        # Initialize counters
+            alphabet_count = 0
+            digit_count = 0
+            special_char_count = 0
+            space_count = 0
 
-    return alphabet_count, digit_count, special_char_count, space_count
+            # Iterate through each character in the input
+            for char in input_text:
+                if char.isalpha():
+                    alphabet_count += 1
+                elif char.isdigit():
+                    digit_count += 1
+                elif char.isspace():
+                    space_count += 1
+                else:
+                    special_char_count += 1
+
+            return alphabet_count, digit_count, special_char_count, space_count
 
 
-# Get user input
-user_input = input("Type a phrase or sentence: ")
+        # Get user input
+        user_input = input("Type a phrase or sentence: ")
 
-# Count characters
-alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
+        # Count characters
+        alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
 
-# Display the results
-print(f"Alphabets: {alphabet_count}")
-print(f"Numbers: {digit_count}")
-print(f"Special Characters: {special_char_count}")
-print(f"Spaces: {space_count}")      
+        # Display the results
+        print(f"Alphabets: {alphabet_count}")
+        print(f"Numbers: {digit_count}")
+        print(f"Special Characters: {special_char_count}")
+        print(f"Spaces: {space_count}")      
+
+#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+       
+        while True:
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            if choice == 'c':
+                break
+            elif choice == 'm':
+                welcome_msg()
+                return
+            elif choice == 'q':
+                print("\nExiting program. Goodbye!\n")
+                exit()
+            else:
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+
 
 
 def program5_guess_a_number():
