@@ -212,9 +212,14 @@ def program4_count_all_characters():
     """
     Count the occurrences of each character in the given text.
     """
+    def count_characters(input_text):
+    # Initialize counters
+        alphabet_count = 0
+        digit_count = 0
+        special_char_count = 0
+        space_count = 0
 
-    print('entered program4')
-    pass
+        
 
 
 def program5_guess_a_number():
