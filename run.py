@@ -3,7 +3,7 @@ import requests
 import pytz
 from datetime import datetime
 
-
+# WELCOME MEESAGE FUNCTION
 def welcome_msg():
     """
     Print banner msg and intro text
@@ -19,13 +19,26 @@ def welcome_msg():
         "5 : Progarm5 - You should guess a number between 1-10.\n"
         )
 
+
+# TWO FUNCTIONS FOR GET WEATHER PROGRAM"
 def get_api_key():
+    """
+    Get the OpenWeatherMap API key from the environment variable.
+    """
     api_key = os.getenv('OPENWEATHERMAP_API_KEY')
     if not api_key:
         raise ValueError("API key not found. Make sure to set the OPENWEATHERMAP_API_KEY environment variable.")
     return api_key
 
 def get_weather(api_key, city):
+    """
+    Get the current weather information for a specified city using the OpenWeatherMap API.
+    Args:
+    - api_key: The API key for accessing the OpenWeatherMap API.
+    - city: The name of the city for which weather information is requested.
+    Returns:
+    - A dictionary containing the weather information.
+    """
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
@@ -36,10 +49,17 @@ def get_weather(api_key, city):
         data['current_time'] = current_time
     return data
 
-    
+
+# PROGRAM1: CONVERT NUMBERS INTO WORDS FUNCTION
 def program1_convert_numbers_to_words():
     """
     Convert a given integer number into its word representation.
+    Parameters:
+    - number (int): The integer number to be converted into words. Should be within the range.
+    Returns:
+    - str: The word representation of the input number.
+    Raises:
+    - ValueError: If the input number is outside the valid range.
     """
     while True:
         try:
@@ -96,6 +116,7 @@ def program1_convert_numbers_to_words():
             print("Invalid input. Enter numbers only")
 
 
+# PROGRAM2: GET WEATHER FUNCTION
 def program2_get_weather():
     """
     Get the current weather information for a specified city using the OpenWeatherMap API.
