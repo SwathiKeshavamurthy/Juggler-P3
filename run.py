@@ -99,6 +99,8 @@ def program1_convert_numbers_to_words():
             # Display the result
             print(f"\nNumber in words: {result}")
 
+#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+
             while True:
                 choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
                 if choice == 'c':
@@ -144,6 +146,8 @@ def program2_get_weather():
         else:
             print("\nCity not found. Please check the city name and try again.")
 
+#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+
         while True:
             choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
             if choice == 'c':
@@ -158,10 +162,16 @@ def program2_get_weather():
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
 
-
+# PROGRAM3: GET DAY OF BIRTH FUNCTION
 def program3_get_day_of_birth():
     """
     Get the day of the week on which a person was born based on their date of birth.
+    Parameters:
+    - date_str (str): A string representing the date of birth in the format 'DD-MM-YYYY'.
+    Returns:
+    - str: The day of the week on which the person was born (e.g., 'Monday', 'Tuesday', etc.).
+    Raises:
+    - ValueError: If the input date string is not in the correct format or if it represents an invalid date.
     """
     while True:
         def find_day_of_birth(date_str):
@@ -182,6 +192,8 @@ def program3_get_day_of_birth():
         date_of_birth = input("Enter the date of birth (dd-mm-yyyy): ")
         find_day_of_birth(date_of_birth)
 
+#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+       
         while True:
             choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
             if choice == 'c':
