@@ -274,32 +274,37 @@ def program5_guess_a_number():
     """
     Guess a number game where the user tries to guess a secret number.
     Parameters:
-    - secret_number (int): The secret number that the user needs to guess.
+    - target_number (int): The secret number that the user needs to guess.
     Returns:
     - str: A message indicating whether the user guessed the number correctly or not.
     """
 
     def guess_a_number(lower_limit, upper_limit):
-    # Generate a random number within the specified range
-    target_number = random.randint(lower_limit, upper_limit)
-    attempts = 0
+        # Generate a random number within the specified range
+        target_number = random.randint(lower_limit, upper_limit)
+        attempts = 0
 
-    while True:
-        guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
+        while True:
+            guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
         
-        # Increment the number of attempts
-        attempts += 1
+            # Increment the number of attempts
+            attempts += 1
 
-        # Check if the guess is correct
-        if guess == target_number:
-            print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
-            break
-        elif guess < target_number:
-            print("Too low. Try again.")
-        else:
-            print("Too high. Try again.")
+            # Check if the guess is correct
+            if guess == target_number:
+                print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                break
+            elif guess < target_number:
+                print("Too low. Try again.")
+            else:
+                print("Too high. Try again.")
 
-            
+        lower_limit = 1
+        upper_limit = 25
+
+# Call the function to start the program
+guess_a_number(lower_limit, upper_limit)
+
 
 def main():
     # Calling the function to display the welcome message
