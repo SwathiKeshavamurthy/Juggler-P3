@@ -2,6 +2,7 @@ import os
 import requests
 import pytz
 import datetime
+import random
 
 # WELCOME MEESAGE FUNCTION
 def welcome_msg():
