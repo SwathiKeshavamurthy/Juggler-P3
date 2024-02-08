@@ -282,8 +282,13 @@ def program5_guess_a_number():
     def guess_a_number(lower_limit, upper_limit):
     # Generate a random number within the specified range
     target_number = random.randint(lower_limit, upper_limit)
-
     attempts = 0
+
+    while True:
+        guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
+        
+        # Increment the number of attempts
+        attempts += 1
 
 def main():
     # Calling the function to display the welcome message
