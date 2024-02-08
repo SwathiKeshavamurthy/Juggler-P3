@@ -8,10 +8,10 @@ def welcome_msg():
     """
     Print banner msg and intro text
     """
-    print("Welcome")
+    print("\nWelcome")
     print("Juggler multi-program tool.")
     print(
-        "Here is the list of all 5 programs.\n"
+        "\nHere is the list of all 5 programs.\n"
         "1 : Progarm1 - You can convert numbers into words between 1 to Trillion.\n"
         "2 : Progarm2 - You can get the weather information of the city you request.\n"
         "3 : Progarm3 - You can find out the Day of Birth.\n"
@@ -88,32 +88,32 @@ def program1_convert_numbers_to_words():
                 elif 1000000000000 <= number < 1000000000000000:
                     return number_to_words(number // 1000000000000) + ' trillion' + (' ' + number_to_words(number % 1000000000000) if number % 1000000000000 != 0 else '')
                 else:
-                    return 'Number out of range'
+                    return '\nNumber out of range'
 
             # Get user input
-            user_input = int(input("Enter a whole number (1 to trillion): "))
+            user_input = int(input("\nEnter a whole number (1 to trillion): "))
 
             # Convert the input to words
             result = number_to_words(user_input)
 
             # Display the result
-            print(f"Number in words: {result}")
+            print(f"\nNumber in words: {result}")
 
             while True:
-                choice = input("Press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+                choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
                 if choice == 'c':
                     break
                 elif choice == 'm':
                     welcome_msg()
                     return
                 elif choice == 'q':
-                    print("Exiting program. Goodbye!")
+                    print("\nExiting program. Goodbye!\n")
                     exit()
                 else:
-                    print("Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                    print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
         except ValueError:
-            print("Invalid input. Enter numbers only")
+            print("\nInvalid input. Enter numbers only")
 
 
 # PROGRAM2: GET WEATHER FUNCTION
@@ -152,7 +152,7 @@ def program2_get_weather():
                 welcome_msg()
                 return
             elif choice == 'q':
-                print("\nExiting program. Goodbye!")
+                print("\nExiting program. Goodbye!\n")
                 exit()
             else:
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
