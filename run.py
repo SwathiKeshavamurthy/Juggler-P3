@@ -131,16 +131,19 @@ def program2_get_weather():
             print("\nCity not found. Please check the city name and try again.")
         else: 
             city = weather_data['name']   
-            date = datetime.datetime.fromtimestamp(weather_data['dt']).strftime('%Y-%m-%d')
-            local_time = datetime.datetime.fromtimestamp(weather_data['timezone']).strftime('%H:%M:%S')
+            
+            # Calculate local time by adding timezone offset
+            timezone_offset = datetime.timedelta(seconds=weather_data['timezone'])
+            local_time = datetime.datetime.fromtimestamp(weather_data['dt'], datetime.timezone.utc) + timezone_offset
+            local_time_str = local_time.strftime('%H:%M:%S')
+        
             weather_description = weather_data["weather"][0]["description"]
             temperature = weather_data["main"]["temp"]
             humidity = weather_data["main"]["humidity"]
             wind_speed = weather_data["wind"]["speed"]
 
             print(f"Weather in {city}")
-            print(f"Date: {date}")
-            print(f"Local Time: {local_time}")
+            print(f"Date and Time: {local_time}")
             print(f"Description: {weather_description}")
             print(f"Temperature: {temperature}°C")
             print(f"Humidity: {humidity}%")
