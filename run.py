@@ -189,11 +189,11 @@ def program3_get_day_of_birth():
                 # List of days of the week
                 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         
-                print(f"The person was born on a {days[day_of_week]}.")
+                print(f"\nThe person born on a {days[day_of_week]}.")
             except ValueError:
-                print("Invalid date format. Please enter the date in dd-mm-yyyy format.")
+                print("\nInvalid date format. Please enter the date in dd-mm-yyyy format.")
 
-        date_of_birth = input("Enter the date of birth (dd-mm-yyyy): ")
+        date_of_birth = input("\nEnter the date of birth (dd-mm-yyyy): ")
         find_day_of_birth(date_of_birth)
 
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
@@ -245,13 +245,13 @@ def program4_count_all_characters():
 
 
         # Get user input
-        user_input = input("Type a phrase or sentence: ")
+        user_input = input("\nType a phrase or sentence: ")
 
         # Count characters
         alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
 
         # Display the results
-        print(f"Alphabets: {alphabet_count}")
+        print(f"\nAlphabets: {alphabet_count}")
         print(f"Numbers: {digit_count}")
         print(f"Special Characters: {special_char_count}")
         print(f"Spaces: {space_count}")      
@@ -289,21 +289,21 @@ def program5_guess_a_number():
                     attempts = 0
 
                     while True:
-                        guess = int(input(f"Guess a number between {lower_limit} and {upper_limit}: "))
+                        guess = int(input(f"\nGuess a number between {lower_limit} and {upper_limit}: "))
         
                         # Increment the number of attempts
                         attempts += 1
 
                         # Check if the guess is correct
                         if guess < lower_limit or guess > upper_limit:
-                            print("Number is out of range. Enter number between 1 to 25")
+                            print("\nNumber is out of range. Enter number between 1 to 25")
                         elif guess == target_number:
-                            print(f"Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                            print(f"\nCongratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
                             break
                         elif guess < target_number:
-                            print("Too low. Try again.")
+                            print("\nToo low. Try again.")
                         else:
-                            print("Too high. Try again.")
+                            print("\nToo high. Try again.")
 
             
             lower_limit = 1
@@ -353,7 +353,7 @@ def main():
             # Calling the function when the choice is 5
             program5_guess_a_number()
         else:
-            print("Invalid choice. Please choose a program between 1 to 5.")
+            print("\nInvalid choice. Please choose a program between 1 to 5.")
 
 if __name__ == "__main__":
     main()
