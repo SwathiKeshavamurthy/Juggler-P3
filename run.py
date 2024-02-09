@@ -18,9 +18,14 @@ def welcome_msg():
         "1 : Progarm1 - You can convert numbers into words between 1 to Trillion.\n"
         "2 : Progarm2 - You can get the weather information of the city you request.\n"
         "3 : Progarm3 - You can find out the Day of Birth.\n"
-        "4 : Progarm4 - You can type a sentence to count all the characters including spaces separately and displayed.\n"
+        "4 : Progarm4 - You can type a sentence to count all the characters along with spaces.\n"
         "5 : Progarm5 - You should guess a number between 1-25.\n"
         )
+
+
+def clear_terminal():
+    # Clear the terminal screen
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 # TWO FUNCTIONS FOR GET WEATHER PROGRAM"
@@ -109,7 +114,8 @@ def program1_convert_numbers_to_words():
                     return
                 elif choice == 'q':
                     print("\nExiting program. Goodbye!\n")
-                    exit()
+                    clear_terminal()
+                    exit() 
                 else:
                     print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
@@ -161,6 +167,7 @@ def program2_get_weather():
                 return
             elif choice == 'q':
                 print("\nExiting program. Goodbye!\n")
+                clear_terminal()
                 exit()
             else:
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
@@ -207,6 +214,7 @@ def program3_get_day_of_birth():
                 return
             elif choice == 'q':
                 print("\nExiting program. Goodbye!\n")
+                clear_terminal()
                 exit()
             else:
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
@@ -267,6 +275,7 @@ def program4_count_all_characters():
                 return
             elif choice == 'q':
                 print("\nExiting program. Goodbye!\n")
+                clear_terminal()
                 exit()
             else:
                 print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
@@ -323,6 +332,7 @@ def program5_guess_a_number():
                     return
                 elif choice == 'q':
                     print("\nExiting program. Goodbye!\n")
+                    clear_terminal()
                     exit()
                 else:
                     print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
