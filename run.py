@@ -28,6 +28,7 @@ def get_api_key():
     """
     Get the OpenWeatherMap API key from the environment variable.
     """
+    load_dotenv()
     api_key = os.getenv('OPENWEATHERMAP_API_KEY')
     if not api_key:
         raise ValueError("API key not found. Make sure to set the OPENWEATHERMAP_API_KEY environment variable.")
@@ -45,11 +46,6 @@ def get_weather(api_key, city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     data = response.json()
-    # Add current local time to the weather information
-    if data.get('timezone'):
-        # Get current local time using the timezone offset
-        current_time = datetime.utcfromtimestamp(data['dt'] + data['timezone']).strftime("%Y-%m-%d %H:%M:%S")
-        data['current_time'] = current_time
     return data
 
 
@@ -129,25 +125,27 @@ def program2_get_weather():
     while True:
         api_key = get_api_key()
         city = input("\nEnter city name: ").strip()
-
         weather_data = get_weather(api_key, city)
 
-        if weather_data.get("cod") == 200:
-            current_time = weather_data["current_time"]
+        if weather_data.get('cod') == '404':
+            print("\nCity not found. Please check the city name and try again.")
+        else: 
+            city = weather_data['name']   
+            date = datetime.datetime.fromtimestamp(weather_data['dt']).strftime('%Y-%m-%d')
+            local_time = datetime.datetime.fromtimestamp(weather_data['timezone']).strftime('%H:%M:%S')
             weather_description = weather_data["weather"][0]["description"]
             temperature = weather_data["main"]["temp"]
             humidity = weather_data["main"]["humidity"]
             wind_speed = weather_data["wind"]["speed"]
 
             print(f"Weather in {city}")
+            print(f"Date: {date}")
+            print(f"Local Time: {local_time}")
             print(f"Description: {weather_description}")
             print(f"Temperature: {temperature}°C")
             print(f"Humidity: {humidity}%")
             print(f"Wind Speed: {wind_speed} m/s")
-            if current_time:
-                print(f"Current Local Time: {current_time}")
-        else:
-            print("\nCity not found. Please check the city name and try again.")
+
 
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
 
