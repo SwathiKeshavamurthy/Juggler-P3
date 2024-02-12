@@ -15,11 +15,11 @@ def welcome_msg():
     print("Juggler multi-program tool.")
     print(
         "\nHere is the list of all 5 programs.\n"
-        "1 : Progarm1 - You can convert numbers into words between 1 to Trillion.\n"
-        "2 : Progarm2 - You can get the weather information of the city you request.\n"
-        "3 : Progarm3 - You can find out the Day of Birth.\n"
-        "4 : Progarm4 - You can type a sentence to count all the characters along with spaces.\n"
-        "5 : Progarm5 - You should guess a number between 1-25.\n"
+        "1 : Program1 - You can convert numbers into words between 1 to Trillion.\n"
+        "2 : Program2 - You can get the weather information of the city you request.\n"
+        "3 : Program3 - You can find out the Day of Birth.\n"
+        "4 : Program4 - You can type a sentence to count all the characters along with spaces.\n"
+        "5 : Program5 - You should guess a number between 1-10.\n"
         )
 
 
@@ -28,16 +28,21 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+
 # TWO FUNCTIONS FOR GET WEATHER PROGRAM"
 def get_api_key():
     """
     Get the OpenWeatherMap API key from the environment variable.
     """
-    load_dotenv()
-    api_key = os.getenv('OPENWEATHERMAP_API_KEY')
-    if not api_key:
-        raise ValueError("API key not found. Make sure to set the OPENWEATHERMAP_API_KEY environment variable.")
-    return api_key
+    try:
+        load_dotenv()
+        api_key = os.getenv('OPENWEATHERMAP_API_KEY')
+        if not api_key:
+            raise ValueError("API key not found.")
+        return api_key
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
 def get_weather(api_key, city):
     """
@@ -66,61 +71,63 @@ def program1_convert_numbers_to_words():
     - ValueError: If the input number is outside the valid range.
     """
     while True:
+        def number_to_words(number):
+            word_to_num = {
+                0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four',
+                5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
+                10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
+                15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen',
+                20: 'twenty', 30: 'thirty', 40: 'forty', 50: 'fifty', 60: 'sixty',
+                70: 'seventy', 80: 'eighty', 90: 'ninety'
+            }
+
+            if 0 <= number < 20:
+                return word_to_num[number]
+            elif 20 <= number < 100:
+                return word_to_num[number // 10 * 10] + ('' if number % 10 == 0 else ' ' + word_to_num[number % 10])
+            elif 100 <= number < 1000:
+                return word_to_num[number // 100] + ' hundred' + (' and ' + number_to_words(number % 100) if number % 100 != 0 else '')
+            elif 1000 <= number < 1000000:
+                return number_to_words(number // 1000) + ' thousand' + (' ' + number_to_words(number % 1000) if number % 1000 != 0 else '')
+            elif 1000000 <= number < 1000000000:
+                return number_to_words(number // 1000000) + ' million' + (' ' + number_to_words(number % 1000000) if number % 1000000 != 0 else '')
+            elif 1000000000 <= number < 1000000000000:
+                return number_to_words(number // 1000000000) + ' billion' + (' ' + number_to_words(number % 1000000000) if number % 1000000000 != 0 else '')
+            elif 1000000000000 <= number < 1000000000000000:
+                return number_to_words(number // 1000000000000) + ' trillion' + (' ' + number_to_words(number % 1000000000000) if number % 1000000000000 != 0 else '')
+            else:
+                return '\nNumber out of range'
+
         try:
-            def number_to_words(number):
-                word_to_num = {
-                    0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four',
-                    5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
-                    10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
-                    15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen',
-                    20: 'twenty', 30: 'thirty', 40: 'forty', 50: 'fifty', 60: 'sixty',
-                    70: 'seventy', 80: 'eighty', 90: 'ninety'
-                }
-
-                if 0 <= number < 20:
-                    return word_to_num[number]
-                elif 20 <= number < 100:
-                    return word_to_num[number // 10 * 10] + ('' if number % 10 == 0 else ' ' + word_to_num[number % 10])
-                elif 100 <= number < 1000:
-                    return word_to_num[number // 100] + ' hundred' + (' and ' + number_to_words(number % 100) if number % 100 != 0 else '')
-                elif 1000 <= number < 1000000:
-                    return number_to_words(number // 1000) + ' thousand' + (' ' + number_to_words(number % 1000) if number % 1000 != 0 else '')
-                elif 1000000 <= number < 1000000000:
-                    return number_to_words(number // 1000000) + ' million' + (' ' + number_to_words(number % 1000000) if number % 1000000 != 0 else '')
-                elif 1000000000 <= number < 1000000000000:
-                    return number_to_words(number // 1000000000) + ' billion' + (' ' + number_to_words(number % 1000000000) if number % 1000000000 != 0 else '')
-                elif 1000000000000 <= number < 1000000000000000:
-                    return number_to_words(number // 1000000000000) + ' trillion' + (' ' + number_to_words(number % 1000000000000) if number % 1000000000000 != 0 else '')
-                else:
-                    return '\n Number out of range'
-
             # Get user input
-            user_input = int(input("\n Enter a whole number (1 to trillion): "))
+            user_input = int(input("\nEnter a whole number (1 to trillion): "))
 
             # Convert the input to words
             result = number_to_words(user_input)
 
             # Display the result
             print(f"\nNumber in words: {result}")
+       
 
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
 
             while True:
-                choice = input("\n Press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+                choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
                 if choice == 'c':
                     break
                 elif choice == 'm':
                     welcome_msg()
                     return
                 elif choice == 'q':
-                    print("\n Exiting program. Goodbye!\n")
+                    print("\nExiting program. Goodbye!\n")
                     clear_terminal()
                     exit() 
                 else:
-                    print("\n Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                    print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
         except ValueError:
-            print("\n Invalid input. Enter numbers only")
+            print("\nInvalid input. Enter numbers only")
+
 
 
 # PROGRAM2: GET WEATHER FUNCTION
@@ -130,11 +137,11 @@ def program2_get_weather():
     """
     while True:
         api_key = get_api_key()
-        city = input("\n Enter city name: ").strip()
+        city = input("\nEnter city name: ").strip()
         weather_data = get_weather(api_key, city)
 
         if weather_data.get('cod') == '404':
-            print("\n City not found. Please check the city name and try again.")
+            print("\nCity not found. Please check the city name and try again.")
         else: 
             city = weather_data['name']   
             
@@ -148,12 +155,12 @@ def program2_get_weather():
             humidity = weather_data["main"]["humidity"]
             wind_speed = weather_data["wind"]["speed"]
 
-            print(f" Weather in {city}")
-            print(f" Date and Time: {local_time}")
-            print(f" Description: {weather_description}")
-            print(f" Temperature: {temperature}°C")
-            print(f" Humidity: {humidity}%")
-            print(f" Wind Speed: {wind_speed} m/s")
+            print(f"Weather in {city}")
+            print(f"Date and Time: {local_time}")
+            print(f"Description: {weather_description}")
+            print(f"Temperature: {temperature}°C")
+            print(f"Humidity: {humidity}%")
+            print(f"Wind Speed: {wind_speed} m/s")
 
 
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
@@ -166,11 +173,12 @@ def program2_get_weather():
                 welcome_msg()
                 return
             elif choice == 'q':
-                print("\n Exiting program. Goodbye!\n")
+                print("\nExiting program. Goodbye!\n")
                 clear_terminal()
                 exit()
             else:
-                print("\n Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+
 
 
 # PROGRAM3: GET DAY OF BIRTH FUNCTION
@@ -193,12 +201,11 @@ def program3_get_day_of_birth():
                 # Get the day of the week (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
                 day_of_week = dob.weekday()
         
-                # List of days of the week
                 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         
-                print(f"\n The person born on a {days[day_of_week]}.")
+                print(f"\nThe person born on a {days[day_of_week]}.")
             except ValueError:
-                print("\n Invalid date format. Please enter the date in dd-mm-yyyy format.")
+                print("\nInvalid date format. Please enter the date in dd-mm-yyyy format.")
 
         date_of_birth = input("\nEnter the date of birth (dd-mm-yyyy): ")
         find_day_of_birth(date_of_birth)
@@ -206,18 +213,19 @@ def program3_get_day_of_birth():
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
        
         while True:
-            choice = input("\n Press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
             if choice == 'c':
                 break
             elif choice == 'm':
                 welcome_msg()
                 return
             elif choice == 'q':
-                print("\n Exiting program. Goodbye!\n")
+                print("\nExiting program. Goodbye!\n")
                 clear_terminal()
                 exit()
             else:
-                print("\n Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+
 
 
 # PROGRAM4: COUNT ALL CHARACTERS INCLUDING SPACES FUNCTION
@@ -253,32 +261,33 @@ def program4_count_all_characters():
 
 
         # Get user input
-        user_input = input("\n Type a phrase or sentence: ")
+        user_input = input("\nType a phrase or sentence: ")
 
         # Count characters
         alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
 
         # Display the results
-        print(f"\n Alphabets: {alphabet_count}")
-        print(f" Numbers: {digit_count}")
-        print(f" Special Characters: {special_char_count}")
-        print(f" Spaces: {space_count}")      
+        print(f"\nAlphabets: {alphabet_count}")
+        print(f"Numbers: {digit_count}")
+        print(f"Special Characters: {special_char_count}")
+        print(f"Spaces: {space_count}")      
 
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
        
         while True:
-            choice = input("\n Press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
             if choice == 'c':
                 break
             elif choice == 'm':
                 welcome_msg()
                 return
             elif choice == 'q':
-                print("\n Exiting program. Goodbye!\n")
+                print("\nExiting program. Goodbye!\n")
                 clear_terminal()
                 exit()
             else:
-                print("\n Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+
 
 
 # PROGRAM5: GUEES A NUMBER FUNCTION
@@ -298,25 +307,25 @@ def program5_guess_a_number():
                     attempts = 0
 
                     while True:
-                        guess = int(input(f"\n Guess a number between {lower_limit} and {upper_limit}: "))
+                        guess = int(input(f"\nGuess a number between {lower_limit} and {upper_limit}: "))
         
                         # Increment the number of attempts
                         attempts += 1
 
                         # Check if the guess is correct
                         if guess < lower_limit or guess > upper_limit:
-                            print("\n Number is out of range. Enter number between 1 to 20")
+                            print("\nNumber is out of range. Please guess a number within the given range 1 to 10")
                         elif guess == target_number:
-                            print(f"\n Congratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                            print(f"\nCongratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
                             break
                         elif guess < target_number:
-                            print("\n Number too low. Try again.")
+                            print("\nEntered number is low. Try again with a higher number.")
                         else:
-                            print("\n Number too high. Try again.")
+                            print("\nEntered number is high. Try again with a lower number.")
 
             
             lower_limit = 1
-            upper_limit = 20
+            upper_limit = 10
 
             # Call the function to start the program
             guess_a_number(lower_limit, upper_limit)
@@ -324,28 +333,30 @@ def program5_guess_a_number():
 #Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
        
             while True:
-                choice = input("\n Press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
+                choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
                 if choice == 'c':
                     break
                 elif choice == 'm':
                     welcome_msg()
                     return
                 elif choice == 'q':
-                    print("\n Exiting program. Goodbye!\n")
+                    print("\nExiting program. Goodbye!\n")
                     clear_terminal()
                     exit()
                 else:
-                    print("\n Invalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+                    print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
 
         except ValueError:
-            print(" Invalid input. Enter numbers only")
+            print("Invalid input. Enter numbers only")
+
+
 
 def main():
     # Calling the function to display the welcome message
     welcome_msg()
 
     while True:
-        program_choice = input(" Please choose a program and type a number between (1-5): ")
+        program_choice = input("Please choose a program and type a number between (1-5): ")
 
         if program_choice == '1':
             # Calling the function when the choice is 1
@@ -363,7 +374,7 @@ def main():
             # Calling the function when the choice is 5
             program5_guess_a_number()
         else:
-            print("\n Invalid choice. Please choose a program between 1 to 5.")
+            print("\nInvalid choice. Please choose a program between 1 to 5.")
 
 if __name__ == "__main__":
     main()
