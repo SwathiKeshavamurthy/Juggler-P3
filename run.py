@@ -11,8 +11,10 @@ def welcome_msg():
     """
     Print banner msg and intro text
     """
+    print("--------------------------------------------------------------------------------------")
     print("\nWelcome")
     print("Juggler multi-program tool.")
+    print("--------------------------------------------------------------------------------------")
     print(
         "\nHere is the list of all 5 programs.\n"
         "1 : Program1 - You can convert numbers into words between 1 to Trillion.\n"
@@ -21,6 +23,7 @@ def welcome_msg():
         "4 : Program4 - You can type a sentence to count all the characters along with spaces.\n"
         "5 : Program5 - You should guess a number between 1-10.\n"
         )
+    print("--------------------------------------------------------------------------------------")
 
 
 def clear_terminal():
@@ -148,11 +151,11 @@ def program2_get_weather():
     """
     while True:
         api_key = get_api_key()
-        city = input("\nEnter city name: ").strip()
+        city = input("\nEnter city or country name: ").strip()
         weather_data = get_weather(api_key, city)
 
         if weather_data.get('cod') == '404':
-            print("\nCity not found. Please check the city name and try again.")
+            print("\nCity or Country not found. Please check the name and try again.")
         else: 
             city = weather_data['name']   
             
@@ -319,21 +322,17 @@ def main():
 
     while True:
         program_choice = input("Please choose a program and type a number between (1-5): ")
-
+        
+        # Calling the function according to the choice
         if program_choice == '1':
-            # Calling the function when the choice is 1
              program1_convert_numbers_to_words()
         elif program_choice == '2':
-            # Calling the function when the choice is 2
             program2_get_weather()
         elif program_choice == '3':
-            # Calling the function when the choice is 3
             program3_get_day_of_birth()
         elif program_choice == '4':
-            # Calling the function when the choice is 4
             program4_count_all_characters()
         elif program_choice == '5':
-            # Calling the function when the choice is 5
             program5_guess_a_number()
         else:
             print("\nInvalid choice. Please choose a program between 1 to 5.")
