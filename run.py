@@ -11,15 +11,15 @@ def welcome_msg():
     """
     Print banner msg and intro text
     """
-    print("\n Welcome")
-    print(" Juggler multi-program tool.")
+    print("\nWelcome")
+    print("Juggler multi-program tool.")
     print(
-        "\n Here is the list of all 5 programs.\n"
-        " 1 : Progarm1 - You can convert numbers into words between 1 to Trillion.\n"
-        " 2 : Progarm2 - You can get the weather information of the city you request.\n"
-        " 3 : Progarm3 - You can find out the Day of Birth.\n"
-        " 4 : Progarm4 - You can type a sentence to count all the characters along with spaces.\n"
-        " 5 : Progarm5 - You should guess a number between 1-25.\n"
+        "\nHere is the list of all 5 programs.\n"
+        "1 : Progarm1 - You can convert numbers into words between 1 to Trillion.\n"
+        "2 : Progarm2 - You can get the weather information of the city you request.\n"
+        "3 : Progarm3 - You can find out the Day of Birth.\n"
+        "4 : Progarm4 - You can type a sentence to count all the characters along with spaces.\n"
+        "5 : Progarm5 - You should guess a number between 1-25.\n"
         )
 
 
