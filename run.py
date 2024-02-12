@@ -28,6 +28,30 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def handle_user_choice():
+    """
+    Prompt the user for a choice between continuing, returning to the main menu, or exiting the program.
+    This function continuously prompts the user for a choice until a valid option is entered.
+    Valid options:
+    - 'c': Continue the current operation.
+    - 'm': Return to the main menu.
+    - 'q': Exit the program.
+    Returns: None
+    """
+    while True:
+        choice = input("\nPress 'c' to continue, 'm' to return to the main menu, or 'q' to exit the program: ")
+        if choice == 'c':
+            break
+        elif choice == 'm':
+            main()
+        elif choice == 'q':
+            print("\nExiting program. Goodbye!\n")
+            clear_terminal()
+            exit() 
+        else:
+            print("\nInvalid choice. Please press 'c' to continue, 'm' to return to the main menu, or 'q' to exit the program")
+
+
 
 # TWO FUNCTIONS FOR GET WEATHER PROGRAM"
 def get_api_key():
@@ -105,25 +129,12 @@ def program1_convert_numbers_to_words():
             # Convert the input to words
             result = number_to_words(user_input)
 
-            # Display the result
-            print(f"\nNumber in words: {result}")
+            print(f"Number in words: {result}")
        
 
-#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+#Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
 
-            while True:
-                choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
-                if choice == 'c':
-                    break
-                elif choice == 'm':
-                    welcome_msg()
-                    return
-                elif choice == 'q':
-                    print("\nExiting program. Goodbye!\n")
-                    clear_terminal()
-                    exit() 
-                else:
-                    print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+            handle_user_choice()
 
         except ValueError:
             print("\nInvalid input. Enter numbers only")
@@ -163,22 +174,9 @@ def program2_get_weather():
             print(f"Wind Speed: {wind_speed} m/s")
 
 
-#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+#Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
 
-        while True:
-            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
-            if choice == 'c':
-                break
-            elif choice == 'm':
-                welcome_msg()
-                return
-            elif choice == 'q':
-                print("\nExiting program. Goodbye!\n")
-                clear_terminal()
-                exit()
-            else:
-                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
-
+            handle_user_choice()
 
 
 # PROGRAM3: GET DAY OF BIRTH FUNCTION
@@ -210,21 +208,9 @@ def program3_get_day_of_birth():
         date_of_birth = input("\nEnter the date of birth (dd-mm-yyyy): ")
         find_day_of_birth(date_of_birth)
 
-#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
-       
-        while True:
-            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
-            if choice == 'c':
-                break
-            elif choice == 'm':
-                welcome_msg()
-                return
-            elif choice == 'q':
-                print("\nExiting program. Goodbye!\n")
-                clear_terminal()
-                exit()
-            else:
-                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+#Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+
+        handle_user_choice()
 
 
 
@@ -272,21 +258,9 @@ def program4_count_all_characters():
         print(f"Special Characters: {special_char_count}")
         print(f"Spaces: {space_count}")      
 
-#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
-       
-        while True:
-            choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
-            if choice == 'c':
-                break
-            elif choice == 'm':
-                welcome_msg()
-                return
-            elif choice == 'q':
-                print("\nExiting program. Goodbye!\n")
-                clear_terminal()
-                exit()
-            else:
-                print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+#Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+
+        handle_user_choice()
 
 
 
@@ -330,21 +304,9 @@ def program5_guess_a_number():
             # Call the function to start the program
             guess_a_number(lower_limit, upper_limit)
 
-#Add loop to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
-       
-            while True:
-                choice = input("\nPress 'c' to continue or 'm' to return to the main menu or 'q' to exit the program: ")
-                if choice == 'c':
-                    break
-                elif choice == 'm':
-                    welcome_msg()
-                    return
-                elif choice == 'q':
-                    print("\nExiting program. Goodbye!\n")
-                    clear_terminal()
-                    exit()
-                else:
-                    print("\nInvalid choice. Please press 'c' to continue or 'm' to return to the main menu or 'q' to exit the program")
+#Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
+
+            handle_user_choice()
 
         except ValueError:
             print("Invalid input. Enter numbers only")
