@@ -166,7 +166,12 @@ def program2_get_weather():
     # geeksforgeeks (https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
     while True:
         api_key = get_api_key()
-        city = input("\nEnter city or country name: ").strip()
+        city = input("\nEnter city or country name: ")
+        # Check if the input is empty
+        if not city.strip():  
+            print(Fore.RED + "You didn't enter anything.")
+            print(Style.RESET_ALL)
+            continue
         weather_data = get_weather(api_key, city)
 
         if weather_data.get('cod') == '404':
@@ -359,6 +364,9 @@ def main():
             program4_count_all_characters()
         elif program_choice == '5':
             program5_guess_a_number()
+        elif program_choice == '':
+            print(Fore.RED + "You didn't enter anything")
+            print(Style.RESET_ALL)
         else:
             print(Fore.RED + "\nInvalid choice. Please choose a program between 1 to 5.")
             print(Style.RESET_ALL)
