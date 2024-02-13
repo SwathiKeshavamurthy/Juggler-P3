@@ -5,6 +5,9 @@ import pytz
 import datetime
 import random
 from dotenv import load_dotenv
+from colorama import init
+from colorama import Fore, Style
+init()
 
 # WELCOME MEESAGE FUNCTION
 def welcome_msg():
@@ -12,8 +15,9 @@ def welcome_msg():
     Print banner msg and intro text
     """
     print("-------------------------------------------------------------------------------------")
-    print("\nWelcome")
+    print(Fore.YELLOW + "\nWelcome")
     print("Juggler multi-program tool.")
+    print(Style.RESET_ALL)
     print("-------------------------------------------------------------------------------------")
     print(
         "\nHere is the list of all 5 programs.\n"
@@ -323,8 +327,8 @@ def main():
     welcome_msg()
 
     while True:
-        program_choice = input("Please choose a program and type a number between (1-5): ")
-        
+        program_choice = input(Fore.BLUE + "Please choose a program and type a number between (1-5): ")
+        print(Style.RESET_ALL)
         # Calling the function according to the choice
         if program_choice == '1':
              program1_convert_numbers_to_words()
