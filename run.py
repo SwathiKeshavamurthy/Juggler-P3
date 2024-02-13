@@ -11,10 +11,10 @@ def welcome_msg():
     """
     Print banner msg and intro text
     """
-    print("--------------------------------------------------------------------------------------")
+    print("-------------------------------------------------------------------------------------")
     print("\nWelcome")
     print("Juggler multi-program tool.")
-    print("--------------------------------------------------------------------------------------")
+    print("-------------------------------------------------------------------------------------")
     print(
         "\nHere is the list of all 5 programs.\n"
         "1 : Program1 - You can convert numbers into words between 1 to Trillion.\n"
@@ -23,7 +23,7 @@ def welcome_msg():
         "4 : Program4 - You can type a sentence to count all the characters along with spaces.\n"
         "5 : Program5 - You should guess a number between 1-10.\n"
         )
-    print("--------------------------------------------------------------------------------------")
+    print("-------------------------------------------------------------------------------------")
 
 
 def clear_terminal():
