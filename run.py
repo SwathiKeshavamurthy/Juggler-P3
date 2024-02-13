@@ -3,6 +3,7 @@ import requests
 import json
 import pytz
 import datetime
+import time
 import random
 from dotenv import load_dotenv
 from colorama import init
@@ -15,7 +16,7 @@ def welcome_msg():
     Print banner msg and intro text
     """
     print("-------------------------------------------------------------------------------------")
-    print(Fore.YELLOW + "\nWelcome")
+    print(Fore.MAGENTA + "\nWelcome")
     print("Juggler multi-program tool.")
     print(Style.RESET_ALL)
     print("-------------------------------------------------------------------------------------")
@@ -52,11 +53,14 @@ def handle_user_choice():
         elif choice == 'm':
             main()
         elif choice == 'q':
-            print("\nExiting program. Goodbye!\n")
+            print(Fore.MAGENTA + "\nExiting program. Goodbye!\n")
+            print(Style.RESET_ALL)
+            time.sleep(1)
             clear_terminal()
             exit() 
         else:
-            print("\nInvalid choice. Please press 'c' to continue, 'm' to return to the main menu, or 'q' to exit the program")
+            print(Fore.RED + "\nInvalid choice. Please press 'c' to continue, 'm' to return to the main menu, or 'q' to exit the program")
+            print(Style.RESET_ALL)
 
 
 # geeksforgeeks (https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
@@ -69,10 +73,12 @@ def get_api_key():
         load_dotenv()
         api_key = os.getenv('OPENWEATHERMAP_API_KEY')
         if not api_key:
-            raise ValueError("API key not found.")
+            raise ValueError(Fore.RED + "API key not found.")
+            print(Style.RESET_ALL)
         return api_key
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(Fore.RED + f"An error occurred: {e}")
+        print(Style.RESET_ALL)
         return None
 
 def get_weather(api_key, city):
@@ -128,7 +134,8 @@ def program1_convert_numbers_to_words():
             elif 1000000000000 <= number < 1000000000000000:
                 return number_to_words(number // 1000000000000) + ' trillion' + (' ' + number_to_words(number % 1000000000000) if number % 1000000000000 != 0 else '')
             else:
-                return '\nNumber out of range'
+                return Fore.RED + '\nNumber out of range'
+                print(Style.RESET_ALL)
 
         try:
             # Get user input
@@ -137,7 +144,8 @@ def program1_convert_numbers_to_words():
             # Convert the input to words
             result = number_to_words(user_input)
 
-            print(f"Number in words: {result}")
+            print(Fore.GREEN + f"Number in words: {result}")
+            print(Style.RESET_ALL)
        
 
 #Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
@@ -145,7 +153,8 @@ def program1_convert_numbers_to_words():
             handle_user_choice()
 
         except ValueError:
-            print("\nInvalid input. Enter numbers only")
+            print(Fore.RED + "\nInvalid input. Enter numbers only")
+            print(Style.RESET_ALL)
 
 
 
@@ -161,7 +170,8 @@ def program2_get_weather():
         weather_data = get_weather(api_key, city)
 
         if weather_data.get('cod') == '404':
-            print("\nCity or Country not found. Please check the name and try again.")
+            print(Fore.RED + "\nCity or Country not found. Please check the name and try again.")
+            print(Style.RESET_ALL)
         else: 
             city = weather_data['name']   
             
@@ -175,12 +185,13 @@ def program2_get_weather():
             humidity = weather_data["main"]["humidity"]
             wind_speed = weather_data["wind"]["speed"]
 
-            print(f"Weather in {city}")
+            print(Fore.GREEN + f"Weather in {city}")
             print(f"Date and Time: {local_time}")
             print(f"Description: {weather_description}")
             print(f"Temperature: {temperature}°C")
             print(f"Humidity: {humidity}%")
             print(f"Wind Speed: {wind_speed} m/s")
+            print(Style.RESET_ALL)
 
 
 #Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
@@ -210,9 +221,11 @@ def program3_get_day_of_birth():
         
                 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         
-                print(f"\nThe person born on a {days[day_of_week]}.")
+                print(Fore.GREEN + f"\nThe person born on a {days[day_of_week]}.")
+                print(Style.RESET_ALL)
             except ValueError:
-                print("\nInvalid date format. Please enter the date in dd-mm-yyyy format.")
+                print(Fore.RED + "\nInvalid date format. Please enter the date in dd-mm-yyyy format.")
+                print(Style.RESET_ALL)
 
         date_of_birth = input("\nEnter the date of birth (dd-mm-yyyy): ")
         find_day_of_birth(date_of_birth)
@@ -262,10 +275,11 @@ def program4_count_all_characters():
         alphabet_count, digit_count, special_char_count, space_count = count_characters(user_input)
 
         # Display the results
-        print(f"\nAlphabets: {alphabet_count}")
+        print(Fore.GREEN + f"\nAlphabets: {alphabet_count}")
         print(f"Numbers: {digit_count}")
         print(f"Special Characters: {special_char_count}")
-        print(f"Spaces: {space_count}")      
+        print(f"Spaces: {space_count}") 
+        print(Style.RESET_ALL)     
 
 #Function to handle user choice of continuing the same program, returning to the main menu, or exiting the program.
 
@@ -297,14 +311,18 @@ def program5_guess_a_number():
 
                         # Check if the guess is correct
                         if guess < lower_limit or guess > upper_limit:
-                            print("\nNumber is out of range. Please guess a number within the given range 1 to 10")
+                            print(Fore.RED + "\nNumber is out of range. Please guess a number within the given range 1 to 10")
+                            print(Style.RESET_ALL)
                         elif guess == target_number:
-                            print(f"\nCongratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                            print(Fore.GREEN + f"\nCongratulations! You guessed the number {target_number} correctly in {attempts} attempts.")
+                            print(Style.RESET_ALL)
                             break
                         elif guess < target_number:
-                            print("\nEntered number is low. Try again with a higher number.")
+                            print(Fore.BLUE + "\nEntered number is low. Try again with a higher number.")
+                            print(Style.RESET_ALL)
                         else:
-                            print("\nEntered number is high. Try again with a lower number.")
+                            print(Fore.BLUE + "\nEntered number is high. Try again with a lower number.")
+                            print(Style.RESET_ALL)
 
             
             lower_limit = 1
@@ -318,7 +336,8 @@ def program5_guess_a_number():
             handle_user_choice()
 
         except ValueError:
-            print("Invalid input. Enter numbers only")
+            print(Fore.RED + "Invalid input. Enter numbers only")
+            print(Style.RESET_ALL)
 
 
 
@@ -327,7 +346,7 @@ def main():
     welcome_msg()
 
     while True:
-        program_choice = input(Fore.BLUE + "Please choose a program and type a number between (1-5): ")
+        program_choice = input(Fore.CYAN + "Please choose a program and type a number between (1-5): ")
         print(Style.RESET_ALL)
         # Calling the function according to the choice
         if program_choice == '1':
@@ -341,7 +360,8 @@ def main():
         elif program_choice == '5':
             program5_guess_a_number()
         else:
-            print("\nInvalid choice. Please choose a program between 1 to 5.")
+            print(Fore.RED + "\nInvalid choice. Please choose a program between 1 to 5.")
+            print(Style.RESET_ALL)
 
 if __name__ == "__main__":
     main()
