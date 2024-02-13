@@ -55,7 +55,7 @@ def handle_user_choice():
             print("\nInvalid choice. Please press 'c' to continue, 'm' to return to the main menu, or 'q' to exit the program")
 
 
-
+# geeksforgeeks (https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
 # TWO FUNCTIONS FOR GET WEATHER PROGRAM"
 def get_api_key():
     """
@@ -97,6 +97,7 @@ def program1_convert_numbers_to_words():
     Raises:
     - ValueError: If the input number is outside the valid range.
     """
+    # stackoverflow (https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-without-using-num2word-library)
     while True:
         def number_to_words(number):
             word_to_num = {
@@ -149,6 +150,7 @@ def program2_get_weather():
     """
     Get the current weather information for a specified city using the OpenWeatherMap API.
     """
+    # geeksforgeeks (https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
     while True:
         api_key = get_api_key()
         city = input("\nEnter city or country name: ").strip()
