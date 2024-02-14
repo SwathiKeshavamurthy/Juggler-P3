@@ -30,7 +30,7 @@ def welcome_msg():
         "1 : Program1 - You can convert numbers into words "
         "between 1 to Trillion.\n"
         "2 : Program2 - You can get the weather information of "
-        "the city or country you request.\n"
+        "the city or country you request\n"
         "3 : Program3 - You can find out the Day of Birth.\n"
         "4 : Program4 - You can type a sentence to count all the characters"
         "along with spaces.\n"
