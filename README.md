@@ -40,7 +40,7 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
 - [Tools Used](#tools-used)
     - [Python Libraries](#python-libraries)
     - [Other Tools](#other-tools)
-
+- [Classes and Functions in Juggler](#classes-and-functions-in-juggler)
 
 # User Goals and Stories (UX)
 
@@ -146,27 +146,27 @@ The main() function is responsible for displaying the welcome message, presentin
 
 ### Existing Program Enhancement Ideas:
 
-- Program1: Convert Numbers into Words.
-1. Support Negative Numbers: Enable converting negative numbers into words.
-2. Decimal Numbers: Allow conversion of decimal numbers (e.g., 123.45) into words.
+**Program1: Convert Numbers into Words.**
+- Support Negative Numbers: Enable converting negative numbers into words.
+- Decimal Numbers: Allow conversion of decimal numbers (e.g., 123.45) into words.
 
-- Program2: Get Weather
+**Program2: Get Weather**
 
-1. More Details: Provide additional weather details like hourly forecasts.
-2. Location Detection: Automatically detect the user's location to fetch weather information.
+- More Details: Provide additional weather details like hourly forecasts.
+- Location Detection: Automatically detect the user's location to fetch weather information.
 
-- Program3: Get Day of Birth
+**Program3: Get Day of Birth**
 
-1. Age Calculation: Add the option to calculate the user's age from their birthdate.
+- Age Calculation: Add the option to calculate the user's age from their birthdate.
 
-- Program4: Count All Characters
+**Program4: Count All Characters**
 
-1. Text Classification: Categorize input text into predefined categories.
+- Text Classification: Categorize input text into predefined categories.
 
-- Program5: Guess a Number
+**Program5: Guess a Number**
 
-1. Difficulty Levels: Offer different difficulty levels with varied ranges or complexity.
-2. Multiplayer Mode: Allow multiple users to guess the number simultaneously.
+- Difficulty Levels: Offer different difficulty levels with varied ranges or complexity.
+- Multiplayer Mode: Allow multiple users to guess the number simultaneously.
 
 ### Addition of New Future Program Enhancement Ideas:
 
@@ -200,3 +200,38 @@ Dotenv is employed for loading environment variables from a .env file into the J
 
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to get a responsive image for README.
 - [OpenWeatherMap](https://openweathermap.org/) was used to retrieve current weather information for any city or country. 
+
+# Classes and Functions in Juggler
+
+- `get_api_key()`
+   -  Retrieves the API key for accessing the OpenWeatherMap API.
+- `get_weather(api_key, city)`
+   - Fetches current weather information for a specified city using the OpenWeatherMap API.
+- `number_to_words(number)`
+    - Converts a given integer number into its word representation.
+- `get_day_of_birth(date_str)`
+    - Determines the day of the week a person was born based on their date of birth.
+- `count_characters(input_text)`
+    - Counts the occurrences of each character in the input text.
+- `guess_a_number(lower_limit, upper_limit)`
+    - Plays the number guessing game where the user tries to guess a secret number within a specified range.
+- `welcome_msg()`
+    - Displays the welcome message and introduction text when the Juggler tool is launched.
+- `clear_terminal()`
+    - Clears the terminal screen.
+- `handle_user_choice()`
+    - Handles user choice for continuing, returning to the main menu, or exiting the program.
+- `main()`
+    - Main function that orchestrates the execution of different programs within the Juggler tool.
+
+# Imports in Juggler
+
+- `os`- Provides a portable way to interact with the operating system.
+- `requests` - Enables sending HTTP requests to web servers and receiving responses.
+- `json` - Provides functions for encoding and decoding JSON data, of Python objects to and from JSON format.
+- `pytz`- Provides timezone information.
+- `datetime` - Provides classes for working with date and time values, including the creation, manipulation, and formatting of datetime objects.
+- `time` - Provides functions for working with time values, including sleeping, measuring time intervals, and accessing the current system time.
+- `random` - Provides functions for generating pseudo-random numbers, allowing the creation of randomized elements in programs.
+- `dotenv` - Loads environment variables from a .env file into the environment.
+- `colorama` - Provides cross-platform support for colored terminal text.
