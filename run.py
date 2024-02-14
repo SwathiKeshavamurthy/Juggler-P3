@@ -179,8 +179,8 @@ def program1_convert_numbers_to_words():
                         if number % 1000000000000 != 0 else '')
                 )
             else:
-                return (Fore.RED + '\nNumber out of range' +
-                        print(Style.RESET_ALL))
+                return (Fore.RED + '\nNumber out of range')
+                print(Style.RESET_ALL)
 
         try:
             # Get user input

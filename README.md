@@ -21,9 +21,9 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
     - [The owner's goals](#owner-goals)
     - [The owner's stories](#owner-stories)
 - [Design of the website](#design-of-the-website)
-    -[Flowchart - Using LUCID](#flowchart---using-lucid)
-    -[Colors - Using COLORAMA](#colors---using-colorama)
-    -[Text](#text)
+    - [Flowchart - Using LUCID](#flowchart---using-lucid)
+    - [Colors - Using COLORAMA](#colors---using-colorama)
+    - [Text](#text)
 - [Features](#features)
     - [Existing Features](#existing-features)
         - [Juggler Main Function](#juggler-main-function)
@@ -41,6 +41,11 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
     - [Python Libraries](#python-libraries)
     - [Other Tools](#other-tools)
 - [Classes and Functions in Juggler](#classes-and-functions-in-juggler)
+- [Imports in Juggler](#imports-in-juggler)
+- [Testing]()
+    - [Validation](#validation)
+    - [Lighthouse](#lighthouse)
+    - [Browser Compatibility](#browser-compatibility)
 
 # User Goals and Stories (UX)
 
@@ -177,7 +182,7 @@ Addition of new programs could further enrich the functionality and usability of
 - [PYTHON](https://www.python.org/) used as the back-end programming language.
 Python is a primary programming language used for developing the core functionality of the Juggler tool. It offers simplicity, readability, and a vast ecosystem of libraries and frameworks that facilitate rapid development.
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) (Hypertext Markup Language) or HTML, was used to design the basic website. 
-HTML was already implemented in the [CODEINSTITUTE TEMPLATE](https://github.com/Code-Institute-Org/p3-template). This template is used for building Jugger Tool. I have made few changes as color and terminal width.
+HTML was already implemented in the [CODEINSTITUTE TEMPLATE](https://github.com/Code-Institute-Org/p3-template). This also has embedded CSS. This template is used for building Jugger Tool. Few changes were made for Juggler color and terminal width.
 
 # Technologies Used
 
@@ -235,3 +240,37 @@ Dotenv is employed for loading environment variables from a .env file into the J
 - `random` - Provides functions for generating pseudo-random numbers, allowing the creation of randomized elements in programs.
 - `dotenv` - Loads environment variables from a .env file into the environment.
 - `colorama` - Provides cross-platform support for colored terminal text.
+
+# Testing
+
+## Validation 
+
+I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+The following report is the validation results with no errors and no warnings.
+![validation](documentation/validation-results/validation.JPG)
+
+## Lighthouse
+
+[Lighthouse in Chrome Developer Tools](https://en.wikipedia.org/wiki/Google_Lighthouse) was used to check performance.
+The following lighthouse report was run on the finished deployed website to check performance.
+![lighthouse](documentation/validation-results/lighthouse.JPG)
+
+## Browser Compatibility
+
+Browser tests on Chrome, Firefox, and Microsoft Edge revealed no issues with the website.
+
+## Manual Testing and User Stories Testing
+
+**Installation** - Ensured all required dependencies are installed correctly.
+
+**Execution** -  Ensured that the tool launches without errors and displays the welcome message and program menu correctly.
+
+**Program Functionality** -  Tested each program within the Juggler tool individually to verify that it performs as expected. This includes converting numbers into words, retrieving weather information, determining the day of birth, counting characters, and playing the number guessing game.
+
+**User Input Handling** - Test various inputs (valid and invalid) for each program to ensure that the tool handles user input correctly and provides appropriate error messages when necessary.
+
+**Edge Cases** - Test edge cases and boundary conditions to ensure that the tool behaves correctly under different scenarios, such as large numbers for number conversion, non-existent cities for weather information, and invalid dates for day of birth calculation.
+
+**Error Handling** - Test error handling mechanisms to ensure that the tool gracefully handles unexpected errors and exceptions, providing clear error messages to the user.  
+
+**Usability** - Evaluate the overall usability and user experience of the tool, considering factors such as clarity of instructions, ease of navigation, and responsiveness of the interface.
