@@ -97,29 +97,72 @@ Some text for README.md is taken from Google and is rephrased by the author.
 
 ## Existing Features
 
+### Juggler Main Function
+The main() function in Juggler serves as the entry point and central control mechanism for the entire multi-program tool. 
+The main() function is responsible for displaying the welcome message, presenting the user with program choices, and handling user input to execute the selected program functionalities. It serves as the backbone of the Juggler tool, coordinating the flow of operations and interactions with the user.
+![main](documentation/readme-images/main.JPG)
+
+
 ### Program1: Convert Numbers into Words
 - Description: Program1 allows users to convert numeric input into its word representation. It supports a wide range of numbers up to trillion.
 - Usage: Users input a whole number within the range of 1 to trillion, and the program converts it into words. For example, entering "123" would result in "one hundred twenty-three".
 - Implementation: The conversion logic is implemented using a Python function that handles various cases based on the magnitude of the input number.
+![program1](documentation/readme-images/p1.JPG)
 
 ### Program2: Get Weather
 - Description: Program2 retrieves current weather information for a specified city or country using the OpenWeatherMap API.
 - Usage: Users input the name of a city or country, and the program fetches and displays the current weather conditions, including temperature, humidity, wind speed, and weather description.
 - Implementation: The program utilizes the requests library to send HTTP requests to the OpenWeatherMap API and parse the JSON response to extract relevant weather data.
+![program2](documentation/readme-images/p2.JPG)
 
 ### Program3: Get Day of Birth
 - Description: Program3 determines the day of the week based on a person's date of birth.
 - Usage: Users input their date of birth in the format "dd-mm-yyyy", and the program calculates and displays the corresponding day of the week (e.g., Monday, Tuesday, etc.).
 - Implementation: The program uses Python's datetime module to parse the input date string and extract the day of the week from the resulting datetime object.
+![program3](documentation/readme-images/p3.JPG)
 
 ### Program4: Count All Characters
 - Description: Program4 counts the occurrences of alphabets, numbers, special characters, and spaces in a given text.
 - Usage: Users input a phrase or sentence, and the program analyzes the input text to count and display the number of alphabets, numbers, special characters, and spaces present.
 - Implementation: The program iterates through each character in the input text and categorizes them into different groups based on their type (alphabet, number, special character, or space), then counts the occurrences of each group.
+![program4](documentation/readme-images/p4.JPG)
 
 ### Program5: Guess a Number
 - Description: Program5 implements a number guessing game where the user tries to guess a secret number within a specified range.
 - Usage: Users are prompted to guess a number between 1 and 10, and the program provides feedback based on whether the guess is too high, too low, or correct.
 - Implementation: The program generates a random secret number within the specified range and compares the user's guess with the secret number to determine the outcome.
+![program5](documentation/readme-images/p5.JPG)
 
 ## Future Features
+
+### Existing Program Enhancement Ideas:
+
+- Program1: Convert Numbers into Words.
+
+Support Negative Numbers: Enable converting negative numbers into words.
+
+Decimal Numbers: Allow conversion of decimal numbers (e.g., 123.45) into words.
+
+- Program2: Get Weather
+
+More Details: Provide additional weather details like hourly forecasts.
+
+Location Detection: Automatically detect the user's location to fetch weather information.
+
+- Program3: Get Day of Birth
+
+Age Calculation: Add the option to calculate the user's age from their birthdate.
+
+- Program4: Count All Characters
+
+Text Classification: Categorize input text into predefined categories.
+
+- Program5: Guess a Number
+
+Difficulty Levels: Offer different difficulty levels with varied ranges or complexity.
+
+Multiplayer Mode: Allow multiple users to guess the number simultaneously.
+
+### Addition of Future Program Enhancement Ideas:
+
+Additions that could further enrich the functionality and usability of the Juggler tool. This features aim to expand the capabilities of Juggler, providing users with more diverse and advanced tools for text manipulation, data analysis, and other tasks.
