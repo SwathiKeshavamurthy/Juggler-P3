@@ -26,12 +26,21 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
     -[Text](#text)
 - [Features](#features)
     - [Existing Features](#existing-features)
-        - [Program1: Convert Numbers into Words](#program1-convert-numbers-into-words)
+        - [Juggler Main Function](#juggler-main-function)
+        - [Program1: Convert Numbers into Words](#program1-convert-numbers-into-words)        
         - [Program2: Get Weather](#program2-get-weather)
         - [Program3: Get Day of Birth](#program3-get-day-of-birth)
         - [Program4: Count All Characters](#program4-count-all-characters)
         - [Program5: Guess a Number](#program5-guess-a-number)
     - [Future Features](#future-features)
+        - [Existing Program Enhancement Ideas](#existing-program-enhancement-ideas)
+        - [Addition of New Future Program Enhancement Ideas](#addition-of-new-future-program-enhancement-ideas)
+- [Languages Used](#languages-used)
+- [Technologies Used](#technologies-used)
+- [Tools Used](#tools-used)
+    - [Python Libraries](#python-libraries)
+    - [Other Tools](#other-tools)
+
 
 # User Goals and Stories (UX)
 
@@ -70,7 +79,7 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
 
 # Design of the website
 
-## Flowchart - Using LUCID
+## Flowchart - Using [LUCID](https://www.lucidchart.com/)
 
 - The flowchart outlines the process flow for a multi-program tool called "Juggler."
 - The flowchart depicts the main menu and the various programs available within the Juggler tool. Each program is represented as a separate process with its own set of functionalities.
@@ -138,31 +147,56 @@ The main() function is responsible for displaying the welcome message, presentin
 ### Existing Program Enhancement Ideas:
 
 - Program1: Convert Numbers into Words.
-
-Support Negative Numbers: Enable converting negative numbers into words.
-
-Decimal Numbers: Allow conversion of decimal numbers (e.g., 123.45) into words.
+1. Support Negative Numbers: Enable converting negative numbers into words.
+2. Decimal Numbers: Allow conversion of decimal numbers (e.g., 123.45) into words.
 
 - Program2: Get Weather
 
-More Details: Provide additional weather details like hourly forecasts.
-
-Location Detection: Automatically detect the user's location to fetch weather information.
+1. More Details: Provide additional weather details like hourly forecasts.
+2. Location Detection: Automatically detect the user's location to fetch weather information.
 
 - Program3: Get Day of Birth
 
-Age Calculation: Add the option to calculate the user's age from their birthdate.
+1. Age Calculation: Add the option to calculate the user's age from their birthdate.
 
 - Program4: Count All Characters
 
-Text Classification: Categorize input text into predefined categories.
+1. Text Classification: Categorize input text into predefined categories.
 
 - Program5: Guess a Number
 
-Difficulty Levels: Offer different difficulty levels with varied ranges or complexity.
+1. Difficulty Levels: Offer different difficulty levels with varied ranges or complexity.
+2. Multiplayer Mode: Allow multiple users to guess the number simultaneously.
 
-Multiplayer Mode: Allow multiple users to guess the number simultaneously.
+### Addition of New Future Program Enhancement Ideas:
 
-### Addition of Future Program Enhancement Ideas:
+Addition of new programs could further enrich the functionality and usability of the Juggler tool. This features aim to expand the capabilities of Juggler, providing users with more diverse and advanced tools for text manipulation, data analysis, and other tasks. Example: Text Encryption/Decryption, Data Visualization.
 
-Additions that could further enrich the functionality and usability of the Juggler tool. This features aim to expand the capabilities of Juggler, providing users with more diverse and advanced tools for text manipulation, data analysis, and other tasks.
+# Languages Used
+
+- [PYTHON](https://www.python.org/) used as the back-end programming language.
+Python is a primary programming language used for developing the core functionality of the Juggler tool. It offers simplicity, readability, and a vast ecosystem of libraries and frameworks that facilitate rapid development.
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) (Hypertext Markup Language) or HTML, was used to design the basic website. 
+HTML was already implemented in the [CODEINSTITUTE TEMPLATE](https://github.com/Code-Institute-Org/p3-template). This template is used for building Jugger Tool. I have made few changes as color and terminal width.
+
+# Technologies Used
+
+- [GitHub](https://github.com/). It provides version control using Git, enabling developers to track changes to their codebase, collaborate with others, and manage their projects efficiently.
+- [GitPod](https://www.gitpod.io/). Gitpod is an online integrated development environment (IDE) that allows developers to write, review, and manage code directly within a web browser.
+- [Heroku](https://www.heroku.com/). Heroku is a cloud platform as a service (PaaS) that enables developers to build, deploy, and manage web applications quickly and easily. It supports multiple programming languages, including Ruby, Node.js, Python, Java, PHP, and Go, allowing developers to work with their preferred tools and frameworks. 
+
+# Tools Used
+
+## Python Libraries
+
+- [Requests Library](https://pypi.org/project/requests/)
+The Requests library is utilized in Juggler for making HTTP requests to external APIs, such as the OpenWeatherMap API for retrieving weather information. It simplifies the process of sending and receiving data over the web.
+- [Colorama Library](https://pypi.org/project/colorama/)
+Colorama is a Python library used for adding colored text and styling to the command-line interface of the Juggler tool. It enhances the visual appeal and user experience by providing colored output for different messages and prompts.
+- [Dotenv Library](https://pypi.org/project/python-dotenv/)
+Dotenv is employed for loading environment variables from a .env file into the Juggler application. It enables configuration settings, such as API keys or sensitive information, to be stored separately from the main codebase and easily managed.
+
+## Other Tools
+
+- [Am I Responsive](https://ui.dev/amiresponsive) was used to get a responsive image for README.
+- [OpenWeatherMap](https://openweathermap.org/) was used to retrieve current weather information for any city or country. 
