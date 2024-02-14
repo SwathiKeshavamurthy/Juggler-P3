@@ -59,7 +59,7 @@ def handle_user_choice():
     """
     while True:
         choice = input("\nPress 'c' to continue, 'm' to return to"
-                       "the main menu, or 'q' to exit the program: ")
+                       " the main menu, or 'q' to exit the program: ")
         if choice == 'c':
             break
         elif choice == 'm':

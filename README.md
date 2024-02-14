@@ -261,16 +261,87 @@ Browser tests on Chrome, Firefox, and Microsoft Edge revealed no issues with the
 
 ## Manual Testing and User Stories Testing
 
+- All manual tests and user stories are explained with screenshots.
+
 **Installation** - Ensured all required dependencies are installed correctly.
 
 **Execution** -  Ensured that the tool launches without errors and displays the welcome message and program menu correctly.
+![test1](documentation/readme-images/test1.JPG)
 
 **Program Functionality** -  Tested each program within the Juggler tool individually to verify that it performs as expected. This includes converting numbers into words, retrieving weather information, determining the day of birth, counting characters, and playing the number guessing game.
 
 **User Input Handling** - Test various inputs (valid and invalid) for each program to ensure that the tool handles user input correctly and provides appropriate error messages when necessary.
+![test2](documentation/readme-images/test2.JPG)
+![test3](documentation/readme-images/test3.JPG)
+![test4](documentation/readme-images/test4.JPG)
+![test5](documentation/readme-images/test5.JPG)
+![test6](documentation/readme-images/test6.JPG)
 
 **Edge Cases** - Test edge cases and boundary conditions to ensure that the tool behaves correctly under different scenarios, such as large numbers for number conversion, non-existent cities for weather information, and invalid dates for day of birth calculation.
+![test7](documentation/readme-images/test7.JPG)
 
 **Error Handling** - Test error handling mechanisms to ensure that the tool gracefully handles unexpected errors and exceptions, providing clear error messages to the user.  
 
+![test8](documentation/readme-images/test8.JPG)
+![test9](documentation/readme-images/test9.JPG)
+
 **Usability** - Evaluate the overall usability and user experience of the tool, considering factors such as clarity of instructions, ease of navigation, and responsiveness of the interface.
+![test10](documentation/readme-images/test10.JPG)
+
+# Deployment
+
+The way Juggler was step up as follows:
+
+1. Sign Up or Log In to Heroku: Visit the Heroku website and sign up or log in.
+2. Create a New App: Once logged in, click on the **New** button in the top-right corner and select **"Create new app"**. Enter a unique name for your app and choose a region closest to you. Then, click on the **Create App** button.
+3. You need an API_KEY for Juggler. To get an API key from OpenWeatherMap, you need to follow these steps:
+
+- Sign Up/Login: Go to the OpenWeatherMap website and sign up for a new account, or log in if you already have an account.
+- Access API Keys: After logging in, navigate to your account dashboard.
+- Generate API Key: Look for the section that provides access to API keys. It may be labeled as "API Keys", "My Subscriptions", or something similar. Click on it to generate a new API key.
+- Choose Plan (if applicable): Depending on your usage and requirements, you may need to choose a plan (e.g., Free, Basic, Pro) to access certain features or to increase usage limits.
+- Copy API Key: Once the API key is generated, copy it to your clipboard.
+- Use API Key: You can now use this API key in your applications to access weather data from OpenWeatherMap's APIs.
+
+4. From the new app **Settings**, click **Reveal Config Vars**, and set the value of KEY to `OPENWEATHERMAP_API_KEY`, and the value to `YOUR_API_KEY` then select *add*.
+5. Further down, to support dependencies, select **Add Buildpack**. The order of the buildpacks is important, select `Python` first, then `Node.js` second.
+6. Heroku needs additional files in order to deploy properly `requirements.txt`.
+You can install this project's **requirements** (where applicable) using:
+- `pip3 install -r requirements.txt`
+If you have your own packages that have been installed, then the requirements file needs updated using:
+- `pip3 freeze > requirements.txt`
+7. Connect to GitHub: After creating your app, navigate to the **"Deploy"** tab and choose **"GitHub"** as your deployment method. Connect your Heroku account to your GitHub account and search for the Juggler repository. Once found, click on the **"Connect"** button to link your Heroku app to the GitHub repository.
+8. Deploy Branch: After connecting to GitHub, choose the branch you want to deploy (usually "master" or "main") and click on the "Deploy Branch" button. Heroku will automatically fetch the latest code from your GitHub repository and deploy it to your app.
+
+Finally click on the **"View"** button to open newly deployed Juggler app in your web browser. You can now access Juggler directly from Heroku and start using its features!
+
+# Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the [GitHub repository](https://github.com/SwathiKeshavamurthy/Juggler-P3) 
+2. Locate the Code button above the list of files and click it 
+3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash or Terminal
+5. Change the current working directory to the one where you want the cloned directory
+6. In your IDE Terminal, type the following command to clone my repository:
+	- `git clone https://github.com/SwathiKeshavamurthy/Juggler-P3.git`
+7. Press Enter to create your local clone.
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/new#https://github.com/SwathiKeshavamurthy/Juggler-P3)
+
+Please note that in order to directly open the project in Gitpod, you need to have the browser extension installed.
+A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/configure/user-settings/browser-extension).
+
+#  Forking
+
+ Forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
+
+You can fork this repository by using the following steps:
+
+1. Navigate to the Repository: Login to GitHub and locate [GitHub Repository](https://github.com/SwathiKeshavamurthy/Juggler-P3).
+2. Fork the Repository: Click on the "Fork" button in the top-right corner of the repository page. This will create a copy of the repository in your GitHub account.
+
+Now you have a copy of the original repository in your own GitHub account!
