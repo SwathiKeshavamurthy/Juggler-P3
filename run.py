@@ -1,20 +1,15 @@
 import os
 import requests
 import json
-import pytz
 import datetime
 import time
 import random
 from dotenv import load_dotenv
 from colorama import init
 from colorama import Fore, Style
-init()
-
-# WELCOME MEESAGE FUNCTION
 
 
 def welcome_msg():
-
     """
     Print banner msg and intro text
     """
@@ -41,7 +36,6 @@ def welcome_msg():
 
 
 def clear_terminal():
-    # Clear the terminal screen
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -114,9 +108,8 @@ def get_weather(api_key, city):
     return data
 
 
-# PROGRAM1: CONVERT NUMBERS INTO WORDS FUNCTION
+# stackoverflow(https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-without-using-num2word-library)
 def program1_convert_numbers_to_words():
-
     """
     Convert a given integer number into its word representation.
     Parameters:
@@ -127,7 +120,6 @@ def program1_convert_numbers_to_words():
     Raises:
     - ValueError: If the input number is outside the valid range.
     """
-    # stackoverflow(https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-without-using-num2word-library)
     while True:
         def number_to_words(number):
             word_to_num = {
@@ -192,8 +184,8 @@ def program1_convert_numbers_to_words():
             print(Fore.GREEN + f"Number in words: {result}")
             print(Style.RESET_ALL)
 
-# Function to handle user choice of continuing the same program, returning
-# to the main menu, or exiting the program.
+            # Function to handle user choice of continuing the same program,
+            # returning to the main menu, or exiting the program.
 
             handle_user_choice()
 
@@ -202,15 +194,13 @@ def program1_convert_numbers_to_words():
             print(Style.RESET_ALL)
 
 
-# PROGRAM2: GET WEATHER FUNCTION
+# geeksforgeeks(https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
+# StackOverflow(https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched)
 def program2_get_weather():
-
     """
     Get the current weather information for a specified city using
     the OpenWeatherMap API.
     """
-    # geeksforgeeks(https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
-    # StackOverflow(https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched)
     while True:
         api_key = get_api_key()
         city = input("\nEnter city or country name: ")
@@ -252,16 +242,11 @@ def program2_get_weather():
             print(f"Wind Speed: {wind_speed} m/s")
             print(Style.RESET_ALL)
 
-
-# Function to handle user choice of continuing the same program, returning
-# to the main menu, or exiting the program.
-
+            # Function to handle user choice
             handle_user_choice()
 
 
-# PROGRAM3: GET DAY OF BIRTH FUNCTION
 def program3_get_day_of_birth():
-
     """
     Get the day of the week on which a person was born based on
     their date of birth.
@@ -292,9 +277,7 @@ def program3_get_day_of_birth():
             )
             print(Style.RESET_ALL)
 
-# Function to handle user choice of continuing the same program, returning
-# to the main menu, or exiting the program.
-
+            # Function to handle user choice
             handle_user_choice()
         except ValueError:
             print(
@@ -303,9 +286,7 @@ def program3_get_day_of_birth():
             print(Style.RESET_ALL)
 
 
-# PROGRAM4: COUNT ALL CHARACTERS INCLUDING SPACES FUNCTION
 def program4_count_all_characters():
-
     """
     Count the occurrences of each character in the given text.
     Parameters:
@@ -351,15 +332,11 @@ def program4_count_all_characters():
         print(f"Spaces: {space_count}")
         print(Style.RESET_ALL)
 
-# Function to handle user choice of continuing the same program,
-# returning to the main menu, or exiting the program.
-
+        # Function to handle user choice
         handle_user_choice()
 
 
-# PROGRAM5: GUEES A NUMBER FUNCTION
 def program5_guess_a_number():
-
     """
     Guess a number game where the user tries to guess a secret number.
     Parameters:
@@ -411,9 +388,7 @@ def program5_guess_a_number():
             # Call the function to start the program
             guess_a_number(lower_limit, upper_limit)
 
-# Function to handle user choice of continuing the same program,
-# returning to the main menu, or exiting the program.
-
+            # Function to handle user
             handle_user_choice()
 
         except ValueError:
@@ -422,7 +397,7 @@ def program5_guess_a_number():
 
 
 def main():
-    # Calling the function to display the welcome message
+    init()
     welcome_msg()
 
     while True:

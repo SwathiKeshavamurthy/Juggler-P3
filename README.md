@@ -244,7 +244,6 @@ Dotenv is employed for loading environment variables from a .env file into the J
 - `os`- Provides a portable way to interact with the operating system.
 - `requests` - Enables sending HTTP requests to web servers and receiving responses.
 - `json` - Provides functions for encoding and decoding JSON data, of Python objects to and from JSON format.
-- `pytz`- Provides timezone information.
 - `datetime` - Provides classes for working with date and time values, including the creation, manipulation, and formatting of datetime objects.
 - `time` - Provides functions for working with time values, including sleeping, measuring time intervals, and accessing the current system time.
 - `random` - Provides functions for generating pseudo-random numbers, allowing the creation of randomized elements in programs.
