@@ -210,6 +210,7 @@ def program2_get_weather():
     the OpenWeatherMap API.
     """
     # geeksforgeeks(https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
+    # StackOverflow(https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched)
     while True:
         api_key = get_api_key()
         city = input("\nEnter city or country name: ")

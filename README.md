@@ -42,10 +42,21 @@ view the live project [CLICK HERE!](https://juggler-p3-8ea65e7afcc7.herokuapp.co
     - [Other Tools](#other-tools)
 - [Classes and Functions in Juggler](#classes-and-functions-in-juggler)
 - [Imports in Juggler](#imports-in-juggler)
-- [Testing]()
+- [Testing](#testing)
     - [Validation](#validation)
     - [Lighthouse](#lighthouse)
     - [Browser Compatibility](#browser-compatibility)
+- [Manual Testing and User Stories Testing](#manual-testing-and-user-stories-testing)
+- [Deployment](#deployment)
+- [Cloning](#cloning)
+- [Forking](#forking)
+- [Bugs](#bugs)
+    - [Solved Bugs](#solved-bugs)
+    - [Unknown Bugs](#unknown-bugs)
+- [Credits](#credits)
+    - [Code](#code)
+    - [Others](#others)
+    - [Acknowledgments](#acknowledgments)
 
 # User Goals and Stories (UX)
 
@@ -115,7 +126,6 @@ Some text for README.md is taken from Google and is rephrased by the author.
 The main() function in Juggler serves as the entry point and central control mechanism for the entire multi-program tool. 
 The main() function is responsible for displaying the welcome message, presenting the user with program choices, and handling user input to execute the selected program functionalities. It serves as the backbone of the Juggler tool, coordinating the flow of operations and interactions with the user.
 ![main](documentation/readme-images/main.JPG)
-
 
 ### Program1: Convert Numbers into Words
 - Description: Program1 allows users to convert numeric input into its word representation. It supports a wide range of numbers up to trillion.
@@ -345,3 +355,36 @@ You can fork this repository by using the following steps:
 2. Fork the Repository: Click on the "Fork" button in the top-right corner of the repository page. This will create a copy of the repository in your GitHub account.
 
 Now you have a copy of the original repository in your own GitHub account!
+
+# Bugs
+
+## Solved Bugs
+
+While validating the code on [PEP8 CI Python Linter](https://pep8ci.herokuapp.com). Found errors of whitespaces, indentation and length of the code. I was able of solve all the bugs and errors.
+
+## Unknown Bugs
+
+I am not aware of any remaining bugs.
+
+# Credits
+
+## Code
+
+- Code for OPENWEATHERMAP using API_KEY: [GeeksforGeeks](https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/)
+- Code for number to words without using library: [StackOverflow](https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-without-using-num2word-library)
+- Tutorial for COLORAMA: [Tech Notebok](https://www.youtube.com/watch?v=bg-quTTOeH4)
+- Code to fetch Date and Time in Get weather program: [StackOverflow](https://stackoverflow.com/questions/62376115/how-to-obtain-open-weather-api-date-time-from-city-being-fetched)
+
+## Others
+
+- Reference code and steps to deployment from Love Sandwiches Walkthrough project.
+- Used [Google](https://www.google.com/) for website text.
+- Used Slack channel for error solving.
+- Used [PyPI](https://pypi.org/) for syntax and Usage.
+
+## Acknowledgments
+
+- I am grateful to my Code Institute mentor Jack Wachira. To guide regarding the project's planning and implementation. 
+- Thanks to Kristyna, Cohort facilitator at Code Institute how is always there to give all the infromation needed.
+- Thanks to my fellow students for constantly inspiring on slack and being there for each other to help in trouble.
+- Thanks to my family for supporting me round the clock.
